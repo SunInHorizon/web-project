@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration Forum</title>
+        <link rel="stylesheet" href="form.css">
+        
+    </head>
+    <body>
+        <h1><u>REGISTRATION FORUM</u></h1>
+        <br>
+        <section class="home">
+            
+           <div>
+            <form id="form" action="/" method="post" name="sample">
+                <div class="input-control">
+                    <label><strong>First Name:</strong></label>
+                    <input type="text" id="First Name" name="FirstName" placeholder="First Name">
+                    <div class="error"></div>
+                </div>
+
+                <br><br>
+
+                <div class="input-control">
+                    <label><strong>Last Name:</strong></label>
+                    <input type="text" id="Last Name" name="LastName" placeholder="Last Name">
+                    <div class="error"></div>
+                </div>
+
+                <br><br>
+
+                <div class="input-control">
+                    <label id="Gender"><strong>Gender:</strong>
+                        <input type="radio" name="gender" value="Male" id="Male">Male 
+                        <input type="radio" name="gender" value="Female" id="Female">Female 
+                        <input type="radio" name="gender" value="Other" id="Other">Other 
+                    </label>     
+                    <div class="error"></div>
+                </div>
+
+                <br><br>
+
+                <div class="input-control">
+                    <label><strong>Email:</strong></label>
+                    <input type="email" id="Email" name="Email" placeholder="Email">
+                    <div class="error"></div>
+                </div>
+            
+                <br><br>
+
+                <div class="input-control">
+                    <label><strong>Password:</strong></label>
+                    <input type="password" id="Password" name="Password" placeholder="Password" pattern=".{8,12}" title="Please enter password of length 8 to 12">
+                    <div class="error"></div>
+                </div>
+                
+                <br><br>
+
+                <div class="input-control">
+                    <label><strong>Repeat Password:</strong></label>
+                    <input type="password" id="Password2" name="Password2" placeholder="Password" pattern=".{8,12}" title="Please enter password of length 8 to 12">
+                    <div class="error"></div>
+                </div>
+
+                <br><br>
+
+                <div class="input-control">
+                    <label><strong>Birthday:</strong> </label>
+                    <input type="date" id="Birthday" name="birthday" onchange="ageCount()">
+                    <div class="error"></div>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="input-control">
+                    <label><strong>Photo:</strong></label>
+                    <input type="file" accept="image/*" id="Image" name="Image" onchange="previewImage(event)">
+                    <br>
+                    <img id="preview" alt="Preview Image">
+                    <div class="error"></div>
+                </div>
+
+                <br>
+                <br>
+        
+                <div class="input-control">
+                    <label><strong>I Agree to Terms and Conditions</strong></label>
+                    <input type="checkbox" id="Checkbox" name="Checkbox">
+                    <div class="error"></div>
+                </div>
+
+                <br>
+
+                <input type="submit" name="Submit" class="color">
+
+                <br><br><br><br><br>
+
+                <table id="tbl" class="table" border="1" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Email</th>
+                            <th>Birthday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </form>
+           </div>
+
+        </section>
+        <script type="text/Javascript" defer src="form.js"></script>
+    </body>
+</html>
