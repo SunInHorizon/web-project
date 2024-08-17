@@ -2,7 +2,6 @@ const form = document.getElementById('form');
 const firstname = document.getElementById('First Name');
 const lastname = document.getElementById('Last Name');
 const gender = document.getElementById('Gender');
-
 const email = document.getElementById('Email');
 const password = document.getElementById('Password');
 const password2 = document.getElementById('Password2');
@@ -30,6 +29,8 @@ form.addEventListener('submit', e =>
 
     if(count >= 9)
         addata();
+
+    resetValue();
 });
 
 const setError = (element, message) => {
@@ -326,4 +327,18 @@ function addata()
     document.getElementById("tbl").appendChild(tr);
 
     document.getElementById("tbl").style.display = "";
+}
+
+function resetValue()
+{
+    document.getElementById('First Name').value = "";
+    document.getElementById('Last Name').value = "";
+    document.getElementsByName('gender').value = "";
+    document.getElementById('Email').value = "";
+    document.getElementById('Password').value = "";
+    document.getElementById('Password2').value = "";
+    document.getElementById('Birthday').value = "";
+    document.getElementById('Image').value = "";
+    document.getElementById('preview').value = "none";
+    document.getElementById('Checkbox').value = "";
 }
