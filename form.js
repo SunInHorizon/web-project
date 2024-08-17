@@ -10,6 +10,8 @@ const birthday = document.getElementById('Birthday');
 const image = document.getElementById('Image')
 const checkbox = document.getElementById('Checkbox');
 var ageY;
+var count = 0;
+
 
 //var getSelectedValue = document.querySelector( 'input[name="gender"]:checked').value;
 //console.log(getSelectedValue);
@@ -26,7 +28,8 @@ form.addEventListener('submit', e =>
 
     validateInputs();
 
-    addata();
+    if(count >= 9)
+        addata();
 });
 
 const setError = (element, message) => {
@@ -168,6 +171,7 @@ const validateInputs = () => {
     }
     else
     {
+        count++;
         setSuccess(firstname);
     }
 
@@ -177,6 +181,7 @@ const validateInputs = () => {
     }
     else
     {
+        count++;
         setSuccess(lastname);
     }
 
@@ -186,6 +191,7 @@ const validateInputs = () => {
     }
     else
     {
+        count++;
         setSuccess(gender);
     }
 
@@ -223,6 +229,7 @@ const validateInputs = () => {
     }
     else
     {
+        count++;
         setSuccess(email);
     }
 
@@ -236,6 +243,7 @@ const validateInputs = () => {
     }
     else
     {
+        count++;
         setSuccess(password);
     }
 
@@ -249,6 +257,7 @@ const validateInputs = () => {
     } 
     else 
     {
+        count++;
         setSuccess(password2);
     }
 
@@ -263,6 +272,7 @@ const validateInputs = () => {
     }
     else
     {
+        count++;
         setSuccess(birthday);
     }
 
@@ -272,6 +282,7 @@ const validateInputs = () => {
     }
     else
     {
+        count++;
         setSuccess(image);
     }
 
@@ -281,8 +292,12 @@ const validateInputs = () => {
     }
     else
     {
+        count++;
         setSuccess(checkbox);
     }
+
+    //console.log(count);
+  
 
 }
 
