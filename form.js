@@ -113,6 +113,7 @@ function ageCount()
 
 function previewImage(event) 
 {
+    document.getElementById('preview').style.display = "";
     var input = event.target;
     var image = document.getElementById('preview');
     if (input.files && input.files[0]) 
@@ -339,6 +340,6 @@ function resetValue()
     document.getElementById('Password2').value = "";
     document.getElementById('Birthday').value = "";
     document.getElementById('Image').value = "";
-    document.getElementById('preview').value = "none";
+    document.getElementById('preview').style.display = "none";
     document.getElementById('Checkbox').value = "";
 }
