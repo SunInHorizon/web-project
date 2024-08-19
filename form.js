@@ -27,10 +27,11 @@ form.addEventListener('submit', e =>
 
     validateInputs();
 
-    if(count >= 9)
+    if(count === 9)
         addata();
 
     resetValue();
+    count = 0;
 });
 
 const setError = (element, message) => {
@@ -169,6 +170,7 @@ const validateInputs = () => {
     
     if(firstnamevalue === "")
     {
+        count = 0;
         setError(firstname, 'First Name is Required');
     }
     else
@@ -179,6 +181,7 @@ const validateInputs = () => {
 
     if(lastnamevalue === "")
     {
+        count = 0;
         setError(lastname, 'Last Name is Required');
     }
     else
@@ -189,6 +192,7 @@ const validateInputs = () => {
 
     if(gender1 === false && gender2 == false && gender3 == false)
     {
+        count = 0;
         setError(gender, 'Gender is Required');
     }
     else
@@ -227,6 +231,7 @@ const validateInputs = () => {
 
     if(emailvalue === "")
     {
+        count = 0;
         setError(email, 'Email is Required');
     }
     else
@@ -237,10 +242,12 @@ const validateInputs = () => {
 
     if(passwordvalue === "")
     {
+        count = 0;
         setError(password, 'Password is Required');
     }
     else if (passwordvalue.length < 8 ) 
     {
+        count = 0;
         setError(password, 'Password must be at least 8 character.')
     }
     else
@@ -251,10 +258,12 @@ const validateInputs = () => {
 
     if(passwordvalue2 === '') 
     {
+        count = 0;
         setError(password2, 'Please confirm your password');
     } 
     else if (passwordvalue2 !== passwordvalue) 
     {
+        count = 0;
         setError(password2, "Passwords doesn't match");
     } 
     else 
@@ -266,6 +275,7 @@ const validateInputs = () => {
 
     if(birthdayvalue === "")
     {
+        count = 0;
         setError(birthday, 'Birthday is Required');        
     }
     else if(ageY >= 30)
@@ -280,6 +290,7 @@ const validateInputs = () => {
 
     if(imagevalue === "")
     {
+        count = 0;
         setError(image, 'Please upload your Image');
     }
     else
@@ -290,6 +301,7 @@ const validateInputs = () => {
 
     if(checkboxvalue === false)
     {
+        count = 0;
         setError(checkbox, 'Terms and Condition needed');        
     }
     else
@@ -298,7 +310,7 @@ const validateInputs = () => {
         setSuccess(checkbox);
     }
 
-    //console.log(count);
+    console.log(count);
   
 
 }
@@ -334,7 +346,7 @@ function resetValue()
 {
     document.getElementById('First Name').value = "";
     document.getElementById('Last Name').value = "";
-    document.getElementsByName('gender').value = "";
+    document.sample.gender.value = "";
     document.getElementById('Email').value = "";
     document.getElementById('Password').value = "";
     document.getElementById('Password2').value = "";
