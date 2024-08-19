@@ -346,12 +346,14 @@ function resetValue()
 {
     document.getElementById('First Name').value = "";
     document.getElementById('Last Name').value = "";
-    document.sample.gender.value = "";
+    document.getElementById('Male').checked = false;
+    document.getElementById('Female').checked = false;
+    document.getElementById('Other').checked = false;
     document.getElementById('Email').value = "";
     document.getElementById('Password').value = "";
     document.getElementById('Password2').value = "";
     document.getElementById('Birthday').value = "";
     document.getElementById('Image').value = "";
     document.getElementById('preview').style.display = "none";
-    document.getElementById('Checkbox').value = "";
+    document.getElementById('Checkbox').checked = false;
 }
