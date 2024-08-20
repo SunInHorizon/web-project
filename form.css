@@ -112,3 +112,8 @@ body {
     padding: 10px;
     border: 2px solid #000 25px;
 }
+
+.input-control.rst input
+{
+    border-color: black;
+}

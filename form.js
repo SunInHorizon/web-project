@@ -11,11 +11,20 @@ const checkbox = document.getElementById('Checkbox');
 var ageY;
 var count = 0;
 
+const inputControl1 = firstname.parentElement;
+const inputControl2 = lastname.parentElement;
+const inputControl3 = gender.parentElement;
+const inputControl4 = email.parentElement;
+const inputControl5 = password.parentElement;
+const inputControl6 = password2.parentElement;
+const inputControl7 = birthday.parentElement;
+const inputControl8 = image.parentElement;
+
 
 //var getSelectedValue = document.querySelector( 'input[name="gender"]:checked').value;
 //console.log(getSelectedValue);
 
-console.log(gender);
+//console.log(firstname);
 //console.log(gender1);
 //console.log(gender2);
 //console.log(gender3);
@@ -28,17 +37,30 @@ form.addEventListener('submit', e =>
     validateInputs();
 
     if(count === 9)
+    {
         addata();
-
-    resetValue();
+        resetValue();
+    }
     count = 0;
 });
 
 const setError = (element, message) => {
+    //console.log(element);
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
-    console.log(inputControl);
+    
 
+    inputControl1.classList.remove('rst');
+    inputControl2.classList.remove('rst');
+    inputControl3.classList.remove('rst');
+    inputControl4.classList.remove('rst');
+    inputControl5.classList.remove('rst');
+    inputControl6.classList.remove('rst');
+    inputControl7.classList.remove('rst');
+    inputControl8.classList.remove('rst');
+
+    //console.log(classList);
+    console.log(inputControl);
     errorDisplay.innerText = message;
     inputControl.classList.add('error');
     inputControl.classList.remove('success');
@@ -47,10 +69,23 @@ const setError = (element, message) => {
 
 
 const setSuccess = element => {
+    //console.log(element);
     const inputControl = element.parentElement;
+   
     const errorDisplay = inputControl.querySelector('.error');
     
+    
+    inputControl1.classList.remove('rst');
+    inputControl2.classList.remove('rst');
+    inputControl3.classList.remove('rst');
+    inputControl4.classList.remove('rst');
+    inputControl5.classList.remove('rst');
+    inputControl6.classList.remove('rst');
+    inputControl7.classList.remove('rst');
+    inputControl8.classList.remove('rst');
 
+    //console.log(classList);
+    console.log(inputControl);
     errorDisplay.innerText = '';
     inputControl.classList.add('success');
     inputControl.classList.remove('error');
@@ -60,7 +95,16 @@ const setSuccess = element => {
 const setError2 = (element, message) => {
     //const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
-    console.log(inputControl);
+    //console.log(inputControl);
+
+    inputControl1.classList.remove('rst');
+    inputControl2.classList.remove('rst');
+    inputControl3.classList.remove('rst');
+    inputControl4.classList.remove('rst');
+    inputControl5.classList.remove('rst');
+    inputControl6.classList.remove('rst');
+    inputControl7.classList.remove('rst');
+    inputControl8.classList.remove('rst');
 
     errorDisplay.innerText = message;
     inputControl.classList.add('error');
@@ -73,7 +117,15 @@ const setSuccess2 = element => {
     //const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
     
-
+    inputControl1.classList.remove('rst');
+    inputControl2.classList.remove('rst');
+    inputControl3.classList.remove('rst');
+    inputControl4.classList.remove('rst');
+    inputControl5.classList.remove('rst');
+    inputControl6.classList.remove('rst');
+    inputControl7.classList.remove('rst');
+    inputControl8.classList.remove('rst');
+    
     errorDisplay.innerText = '';
     inputControl.classList.add('success');
     inputControl.classList.remove('error');
@@ -356,4 +408,16 @@ function resetValue()
     document.getElementById('Image').value = "";
     document.getElementById('preview').style.display = "none";
     document.getElementById('Checkbox').checked = false;
+
+    
+
+    inputControl1.classList.add('rst');
+    inputControl2.classList.add('rst');
+    inputControl3.classList.add('rst');
+    inputControl4.classList.add('rst');
+    inputControl5.classList.add('rst');
+    inputControl6.classList.add('rst');
+    inputControl7.classList.add('rst');
+    inputControl8.classList.add('rst');
+    
 }
