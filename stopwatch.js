@@ -33,5 +33,56 @@ window.onload = function () {
         appenendminute.innerHTML = minute;
     }
 
-    
+    function startTimer()
+    {
+        millisecond++;
+
+        if(millisecond <= 9)
+        {
+            appendmillisecond.innerHTML = "0" + millisecond;
+        }
+
+        if(millisecond > 9)
+        {
+            appendmillisecond.innerHTML = millisecond;
+        }
+
+        /*if(millisecond > 99)
+        {
+            appendmillisecond.innerHTML = millisecond;
+        }*/
+
+        if(millisecond > 99)
+        {
+            console.log("second")
+            second++;
+            appendsecond.innerHTML = "0" + second;
+            millisecond = 0;
+            appendmillisecond.innerHTML = "0" +  0;
+        }
+
+        if(second <=9)
+        {
+            appendsecond.innerHTML = "0" + second;
+        }
+
+        if(second > 9)
+        {
+            appendsecond.innerHTML = second;
+        }
+
+        if(second > 60)
+        {
+            console.log("minute");
+            minute++;
+            appenendminute.innerHTML = "0" + minute;
+            second = 0;
+            appendsecond.innerHTML = "0" + 0;
+        }
+
+        if(minute > 9)
+        {
+            appenendminute.innerHTML = minute;
+        }
+    }
 }
