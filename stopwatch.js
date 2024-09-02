@@ -10,17 +10,35 @@ window.onload = function () {
     var buttonStop = document.getElementById('button-stop');
     var buttonReset = document.getElementById('button-reset');
     var interval;
+    var flag = false;
+    buttonStop.disabled = true;
+    buttonReset.disabled = true;
 
     buttonStart.onclick = function() {
 
         clearInterval(interval);
         interval = setInterval(startTimer, 10);
+        buttonStop.disabled = false;
+        buttonReset.disabled = false;
     }
 
     buttonStop.onclick = function() {
 
-        clearInterval(interval);
+        if(flag === false)
+        {
+            clearInterval(interval);
+            buttonStop.innerText = "Resume";
+            flag = true;
+        }
+        else
+        {
+            clearInterval(interval);
+            interval = setInterval(startTimer, 10);
+            buttonStop.innerText = "Stop";
+            flag = false;
+        }
     }
+
 
     buttonReset.onclick = function() {
 
@@ -31,6 +49,9 @@ window.onload = function () {
         appendmillisecond.innerHTML = millisecond;
         appendsecond.innerHTML = second;
         appenendminute.innerHTML = minute;
+        buttonStop.innerText = "Stop";
+        buttonStop.disabled = true;
+        buttonReset.disabled = true;
     }
 
     function startTimer()
