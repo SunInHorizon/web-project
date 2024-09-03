@@ -7,23 +7,48 @@ window.onload = function () {
     var appendsecond = document.getElementById('second');
     var appenendminute = document.getElementById('minute');
     var buttonStart = document.getElementById('button-start');
-    var buttonStop = document.getElementById('button-stop');
+    //var buttonStop = document.getElementById('button-stop');
     var buttonReset = document.getElementById('button-reset');
     var interval;
+    var status = false;
     var flag = false;
-    buttonStop.disabled = true;
     buttonReset.disabled = true;
 
     buttonStart.onclick = function() {
 
-        clearInterval(interval);
-        interval = setInterval(startTimer, 10);
-        buttonStop.disabled = false;
-        buttonReset.disabled = false;
+        if(status === false)
+        {
+            clearInterval(interval);
+            interval = setInterval(startTimer, 10);
+            buttonReset.disabled = false;
+            buttonStart.innerText = "Stop"
+            buttonStart.style.backgroundColor = "#ff3333"
+            status = true;
+        }
+        else
+        {
+            if(flag === false)
+            {
+                clearInterval(interval);
+                buttonStart.innerText = "Resume";
+                buttonStart.style.backgroundColor = "#ffb233"
+                flag = true;
+            }
+            else
+            {
+                clearInterval(interval);
+                interval = setInterval(startTimer, 10);
+                buttonStart.innerText = "Stop";
+                buttonStart.style.backgroundColor = "#ff3333"
+                flag = false;
+            }
+        }
+        
     }
 
-    buttonStop.onclick = function() {
+    /*buttonStop.onclick = function() {
 
+        buttonStart.disabled = true;
         if(flag === false)
         {
             clearInterval(interval);
@@ -37,7 +62,7 @@ window.onload = function () {
             buttonStop.innerText = "Stop";
             flag = false;
         }
-    }
+    }*/
 
 
     buttonReset.onclick = function() {
@@ -49,8 +74,8 @@ window.onload = function () {
         appendmillisecond.innerHTML = millisecond;
         appendsecond.innerHTML = second;
         appenendminute.innerHTML = minute;
-        buttonStop.innerText = "Stop";
-        buttonStop.disabled = true;
+        buttonStart.innerText = "Start";
+        buttonStart.style.backgroundColor = "#33ff39"
         buttonReset.disabled = true;
     }
 
