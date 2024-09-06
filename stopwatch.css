@@ -26,7 +26,18 @@ h1
     flex-direction: column;
 }
 
+#laps
+{
+    height: 200px;
+    padding: 10px;
+    overflow: auto;
+}
 
+#laps li
+{
+    font-size: 22px;
+    padding: 10px;
+}
 
 #button-start
 {
