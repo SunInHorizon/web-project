@@ -12,6 +12,15 @@ window.onload = function () {
     var minute3 = 0;
     var second3 = 0;
     var millisecond3 = 0;
+    var minute4 = 0;
+    var second4 =  0;
+    var millisecond4 = 0; 
+    var min1 = 0;
+    var sec1 = 0;
+    var milli1 = 0;
+    var min2 = 0;
+    var sec2 = 0;
+    var milli2 =0;
     var appendmillisecond = document.getElementById('millisecond');
     var appendsecond = document.getElementById('second');
     var appenendminute = document.getElementById('minute');
@@ -74,6 +83,9 @@ window.onload = function () {
             laps.appendChild(li);
             laps.scroll({top: laps.scrollHeight, behavior: "smooth"});
             temp = true;
+            minute3 = minute - minute1;
+            second3 = second - second1;
+            millisecond3 = millisecond - millisecond1;
             minute2 = minute;
             second2 = second;
             millisecond2 = millisecond;
@@ -81,16 +93,50 @@ window.onload = function () {
         else
         {
             count++;
-            minute3 = minute - minute2;
-            second3 = second - second2;
-            millisecond3 = millisecond - millisecond2;
-            let li = document.createElement("li");
-            li.innerHTML = `${"#" + count} :- ${zeropad(minute2)}:${zeropad(second2)}.${zeropad(millisecond2)} - ${zeropad(minute)}:${zeropad(second)}.${zeropad(millisecond)}`;
-            laps.appendChild(li);
-            laps.scroll({top: laps.scrollHeight, behavior: "smooth"});
-            minute2 = minute;
-            second2 = second;
-            millisecond2 = millisecond;
+            minute4 = minute - minute2;
+            second4 = second - second2;
+            millisecond4 = millisecond - millisecond2;
+            if(minute1 === 0 && second1 === 0 && millisecond1 === 0)
+            {
+                if(minute4 > minute2 || second4 > second2 || millisecond4 > millisecond2)
+                {
+                    min1 = minute4 - minute2;
+                    sec1 = second4 - second2;
+                    milli1 = millisecond4 - millisecond2;
+                    min2 = minute4;
+                    sec2 = second4;
+                    milli2 = millisecond4;
+                    let li = document.createElement("li");
+                    li.innerHTML = `${"#" + count} :- ${zeropad(minute2)}:${zeropad(second2)}.${zeropad(millisecond2)} - ${zeropad(minute)}:${zeropad(second)}.${zeropad(millisecond)} :: ${zeropad(min1)}:${zeropad(sec1)}.${zeropad(milli1)}`;
+                    laps.appendChild(li);
+                    laps.scroll({top: laps.scrollHeight, behavior: "smooth"});
+                }
+                minute1++;
+                second1++;
+                millisecond1++;
+                minute2 = minute;
+                second2 = second;
+                millisecond2 = millisecond;
+            }
+            else
+            {
+                if(minute4 > min2 || second4 > sec2 || millisecond4 > milli2)
+                {
+                    min1 = minute4 - min2;
+                    sec1 = second4 - sec2;
+                    milli1 = millisecond4 - milli2;
+                    min2 = minute4;
+                    sec2 = second4;
+                    milli2 = millisecond4;
+                    let li = document.createElement("li");
+                    li.innerHTML = `${"#" + count} :- ${zeropad(minute2)}:${zeropad(second2)}.${zeropad(millisecond2)} - ${zeropad(minute)}:${zeropad(second)}.${zeropad(millisecond)} :: ${zeropad(min1)}:${zeropad(sec1)}.${zeropad(milli1)}`;
+                    laps.appendChild(li);
+                    laps.scroll({top: laps.scrollHeight, behavior: "smooth"});
+                }
+                minute2 = minute;
+                second2 = second;
+                millisecond2 = millisecond;
+            }
         }
        
     }
