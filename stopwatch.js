@@ -55,6 +55,69 @@ window.onload = function () {
                 buttonStart.innerText = "Resume";
                 buttonStart.style.backgroundColor = "#ffb233"
                 flag = true;
+                if(temp === false)
+                    {
+                        count++;
+                        let li = document.createElement("li");
+                        li.innerHTML = `${"#" + count} :- ${zeropad(minute1)}:${zeropad(second1)}.${zeropad(millisecond1)} - ${zeropad(minute)}:${zeropad(second)}.${zeropad(millisecond)}`;
+                        laps.appendChild(li);
+                        laps.scroll({top: laps.scrollHeight, behavior: "smooth"});
+                        temp = true;
+                        minute3 = minute - minute1;
+                        second3 = second - second1;
+                        millisecond3 = millisecond - millisecond1;
+                        minute2 = minute;
+                        second2 = second;
+                        millisecond2 = millisecond;
+                    }
+                    else
+                    {
+                        count++;
+                        minute4 = minute - minute2;
+                        second4 = second - second2;
+                        millisecond4 = millisecond - millisecond2;
+                        if(minute1 === 0 && second1 === 0 && millisecond1 === 0)
+                        {
+                            if(minute4 > minute2 || second4 > second2 || millisecond4 > millisecond2)
+                            {
+                                min1 = minute4 - minute2;
+                                sec1 = second4 - second2;
+                                milli1 = millisecond4 - millisecond2;
+                                min2 = minute4;
+                                sec2 = second4;
+                                milli2 = millisecond4;
+                                let li = document.createElement("li");
+                                li.innerHTML = `${"#" + count} :- ${zeropad(minute2)}:${zeropad(second2)}.${zeropad(millisecond2)} - ${zeropad(minute)}:${zeropad(second)}.${zeropad(millisecond)} :: ${zeropad(min1)}:${zeropad(sec1)}.${zeropad(milli1)}`;
+                                laps.appendChild(li);
+                                laps.scroll({top: laps.scrollHeight, behavior: "smooth"});
+                            }
+                            minute1++;
+                            second1++;
+                            millisecond1++;
+                            minute2 = minute;
+                            second2 = second;
+                            millisecond2 = millisecond;
+                        }
+                        else
+                        {
+                            if(minute4 > min2 || second4 > sec2 || millisecond4 > milli2)
+                            {
+                                min1 = minute4 - min2;
+                                sec1 = second4 - sec2;
+                                milli1 = millisecond4 - milli2;
+                                min2 = minute4;
+                                sec2 = second4;
+                                milli2 = millisecond4;
+                                let li = document.createElement("li");
+                                li.innerHTML = `${"#" + count} :- ${zeropad(minute2)}:${zeropad(second2)}.${zeropad(millisecond2)} - ${zeropad(minute)}:${zeropad(second)}.${zeropad(millisecond)} :: ${zeropad(min1)}:${zeropad(sec1)}.${zeropad(milli1)}`;
+                                laps.appendChild(li);
+                                laps.scroll({top: laps.scrollHeight, behavior: "smooth"});
+                            }
+                            minute2 = minute;
+                            second2 = second;
+                            millisecond2 = millisecond;
+                        }
+                    }
             }
             else
             {
@@ -72,7 +135,7 @@ window.onload = function () {
         return String(num).padStart(2, "0");
     }
 
-    buttonLap.onclick = function() {
+    /*buttonLap.onclick = function() {
 
        
         if(temp === false)
@@ -139,7 +202,7 @@ window.onload = function () {
             }
         }
        
-    }
+    }*/
 
     /*buttonStop.onclick = function() {
 
